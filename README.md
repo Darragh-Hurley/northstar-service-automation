@@ -184,3 +184,49 @@ Dashboard metrics are calculated from the underlying operational tables, allowin
 ### Operational Dashboard
 
 ![NorthStar Plumbing Operational Dashboard](images/northstar-dashboard.png)
+
+## Technical Challenges & Design Decisions
+
+Building the system required handling several issues that arise when automating processes across multiple workflows and data tables.
+
+### Maintaining Relationships Between Records
+
+Customer enquiries, work orders, employees, and invoices are stored as separate records but need to remain connected throughout the service lifecycle.
+
+I implemented unique identifiers such as Customer IDs, Enquiry IDs, and Work Order IDs and passed these between workflows. This allows records to be retrieved and updated without relying on names or other potentially duplicated information.
+
+For example, when an accepted enquiry becomes a work order, the resulting Work Order ID is written back to the original enquiry to maintain traceability between the two records.
+
+### Handling New and Existing Customers
+
+An enquiry may come from either a new customer or someone already stored in the system.
+
+Before creating a customer record, the intake workflow searches the existing customer data. A router then sends the enquiry through different paths depending on whether a matching customer was found.
+
+Existing customers are linked to their current Customer ID, while new customers receive a new customer record and unique ID before their enquiry is created.
+
+This prevents unnecessary duplicate customer records while allowing both cases to be handled through the same intake process.
+
+### Preventing Repeated Automation Actions
+
+Scheduled scenarios can encounter the same records across multiple executions, creating a risk that actions such as work order creation, calendar scheduling, or customer emails could be performed more than once.
+
+To address this, workflow state is stored against the relevant operational records. For example, generated Work Order IDs, Calendar Event IDs, and confirmation status fields can be used to determine whether an action has already occurred before processing the record again.
+
+This makes the workflows safer to run repeatedly without intentionally recreating completed actions.
+
+### Synchronising Technician Availability
+
+Technician availability needs to remain consistent with the work being scheduled.
+
+When a work order is scheduled, the assigned employee's status is changed to Busy before the appointment is added to Google Calendar. When the work order is completed, a separate workflow returns the employee's status to Available.
+
+Separating completion into its own workflow allows employee availability to remain synchronised with the operational status of jobs.
+
+### Designing for Traceability
+
+Rather than treating each automation as an isolated workflow, I designed the scenarios to update the underlying operational records as they progress.
+
+Information such as Work Order IDs, Calendar Event IDs, email confirmation status, completion dates, and activity records provides visibility into what actions have already occurred.
+
+This makes the system easier to monitor, troubleshoot, and extend as additional workflows are introduced.
