@@ -180,3 +180,7 @@ This makes it possible to see how customer enquiries progress through the operat
 ### Dynamic Reporting
 
 Dashboard metrics are calculated from the underlying operational tables, allowing reporting to update as customer, enquiry, work order, and invoice records change.
+
+### Operational Dashboard
+
+![NorthStar Plumbing Operational Dashboard](images/northstar-dashboard.png)
