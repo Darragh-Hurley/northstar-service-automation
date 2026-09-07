@@ -60,6 +60,8 @@ The system uses Make.com to coordinate data and actions between the different co
 
 The goal of this project was to design a connected system that automates these repetitive steps while maintaining a clear operational record.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/06179265-18dc-497c-b1a4-7c85bda81301" />
+
 ## Automation Workflows
 
 The system is divided into five Make.com scenarios, with each scenario responsible for a specific stage of the service lifecycle.
