@@ -83,6 +83,10 @@ The workflow:
 
 This avoids creating duplicate customer records while maintaining a consistent relationship between customers and their enquiries.
 
+#### Make.com Scenario
+
+![Customer and Enquiry Intake Make.com Scenario](images/01-customer-enquiry-intake.png)
+
 ### 2. AI Enquiry Processing
 
 New enquiries can be enriched using Google Gemini.
@@ -90,6 +94,10 @@ New enquiries can be enriched using Google Gemini.
 The workflow identifies enquiries requiring AI processing, sends the enquiry information to Gemini, and stores the generated output against the relevant enquiry record.
 
 This demonstrates how an LLM can be incorporated into an operational workflow rather than used as a standalone chatbot.
+
+#### Make.com Scenario
+
+![AI Enquiry Processing Make.com Scenario](images/02-ai-enquiry-processing.png)
 
 ### 3. Work Order Creation
 
@@ -104,6 +112,10 @@ The workflow:
 5. Updates the original enquiry with its Work Order ID.
 
 This maintains traceability between the original customer request and the resulting job.
+
+#### Make.com Scenario
+
+![Work Order Creation Make.com Scenario](images/03-work-order-creation.png)
 
 ### 4. Technician Scheduling & Customer Communication
 
@@ -122,6 +134,10 @@ The workflow:
 
 This scenario connects operational data, employee availability, scheduling, and customer communication in a single workflow.
 
+#### Make.com Scenario
+
+![Technician Scheduling & Customer Communication Make.com Scenario](images/04-technician-scheduling.png)
+
 ### 5. Work Order Completion
 
 Completed jobs trigger a final workflow that closes the operational lifecycle.
@@ -129,3 +145,7 @@ Completed jobs trigger a final workflow that closes the operational lifecycle.
 The workflow records the work order completion date, identifies the employee who completed the job, and changes their availability back to Available.
 
 This ensures employee availability remains synchronised with job status.
+
+#### Make.com Scenario
+
+![Work Order Completion Make.com Scenario](images/05-work-order-completion.png)
