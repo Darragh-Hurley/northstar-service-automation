@@ -41,7 +41,7 @@ Key parts of the solution include:
 - Assigning technicians and tracking employee availability
 - Creating scheduled appointments in Google Calendar
 - Sending automated appointment confirmations through Gmail
-- Preventing duplicate work orders by checking existing Enquiry IDs before creation
+- Preventing duplicate work orders by only processing accepted enquiries without an existing Work Order ID
 - Maintaining an activity log to provide visibility into workflow actions
 - Tracking invoices, job progress, and customer follow-ups
 - Surfacing operational KPIs through a live dashboard
@@ -57,8 +57,7 @@ The system uses Make.com to coordinate data and actions between the different co
 - **Google Forms** — customer enquiry capture
 - **Google Calendar** — appointment scheduling
 - **Gmail** — automated customer communication
-
-The goal of this project was to design a connected system that automates these repetitive steps while maintaining a clear operational record.
+- **Google Gemini** — AI-assisted enquiry processing
 
 ### Architecture Overview
 
