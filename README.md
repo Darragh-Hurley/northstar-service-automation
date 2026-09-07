@@ -268,3 +268,9 @@ If the system were developed further, potential improvements would include:
 - Creating role-based interfaces for administrative staff and technicians
 - Adding more detailed workflow monitoring and audit logging
 - Moving selected integrations to API- or webhook-driven processing where real-time execution would provide a benefit
+
+## Demo Workbook
+
+A demonstration workbook containing fictional sample data is included in this repository to show the underlying data structure and reporting model used by the automation.
+
+> **Note:** All records in the workbook are fictional demo data created to demonstrate the system. The workbook does not contain real customer information.
